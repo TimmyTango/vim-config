@@ -150,6 +150,7 @@ if has("gui_running")
     set guioptions-=T
     set guioptions-=e
     set t_Co=256
+    set guioptions -=m
     set guitablabel=%M\ %t
 endif
 
@@ -391,4 +392,3 @@ set nowrap
 map <F7> mzgg=G`z
 " F6 - Remove trailing whitespace for entire file
 map <F6> mz:%s/\s\+$//e<CR>`z
-set guioptions -=m
