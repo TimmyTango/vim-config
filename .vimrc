@@ -143,10 +143,7 @@ endif
 
 set background=dark
 
-try
-    colorscheme papercolor 
-catch
-endtry
+colorscheme PaperColor
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -394,3 +391,4 @@ set nowrap
 map <F7> mzgg=G`z
 " F6 - Remove trailing whitespace for entire file
 map <F6> mz:%s/\s\+$//e<CR>`z
+set guioptions -=m
