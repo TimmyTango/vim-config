@@ -394,3 +394,4 @@ map <F7> mzgg=G`z
 map <F6> mz:%s/\s\+$//e<CR>`z
 nnoremap t gt
 nnoremap T gT
+imap jj <Esc>
