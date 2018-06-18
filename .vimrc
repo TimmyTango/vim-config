@@ -143,7 +143,8 @@ endif
 
 set background=dark
 
-colorscheme PaperColor
+" colorscheme PaperColor
+colorscheme cobalt 
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -395,3 +396,4 @@ map <F6> mz:%s/\s\+$//e<CR>`z
 nnoremap t gt
 nnoremap T gT
 imap jj <Esc>
+set diffopt=filler,iwhite,vertical
