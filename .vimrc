@@ -143,8 +143,8 @@ endif
 
 set background=dark
 
-" colorscheme PaperColor
-colorscheme cobalt 
+colorscheme PaperColor
+" colorscheme cobalt 
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -397,3 +397,13 @@ nnoremap t gt
 nnoremap T gT
 imap jj <Esc>
 set diffopt=filler,iwhite,vertical
+set mouse=a
+if has("mouse_sgr")
+    set ttymouse=sgr
+else
+    set ttymouse=xterm2
+end
+:map <ScrollWheelUp> <C-Y>
+:map <S-ScrollWheelUp> <C-U>
+:map <ScrollWheelDown> <C-E>
+:map <S-ScrollWheelDown> <C-D>
