@@ -385,7 +385,7 @@ endfunction
 
 set number
 set relativenumber
-map <C-n> :NERDTreeToggle<CR>
+map <leader>f :NERDTreeToggle<CR>
 nnoremap <CR> :noh<CR><CR>
 set clipboard=unnamed
 set nowrap
@@ -395,6 +395,12 @@ map <F7> mzgg=G`z
 map <F6> mz:%s/\s\+$//e<CR>`z
 nnoremap t gt
 nnoremap T gT
+nnoremap <Space> "
+vnoremap <Space> "
+nnoremap dd "_dd
+vnoremap dd "_dd
+nnoremap x "_x
+vnoremap x "_x
 imap jj <Esc>
 set diffopt=filler,iwhite,vertical
 set mouse=a
