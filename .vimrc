@@ -143,7 +143,7 @@ endif
 
 set background=dark
 
-colorscheme PaperColor
+colorscheme PaperColor 
 " colorscheme cobalt 
 
 " Set extra options when running in GUI mode
@@ -393,14 +393,11 @@ set nowrap
 map <F7> mzgg=G`z
 " F6 - Remove trailing whitespace for entire file
 map <F6> mz:%s/\s\+$//e<CR>`z
-nnoremap t gt
-nnoremap T gT
+nnoremap K kJ
 nnoremap <Space> "
 vnoremap <Space> "
-nnoremap dd "_dd
-vnoremap dd "_dd
-nnoremap x "_x
-vnoremap x "_x
+nnoremap <Space><Space> "_
+vnoremap <Space><Space> "_
 imap jj <Esc>
 set diffopt=filler,iwhite,vertical
 set mouse=a
@@ -413,3 +410,4 @@ end
 :map <S-ScrollWheelUp> <C-U>
 :map <ScrollWheelDown> <C-E>
 :map <S-ScrollWheelDown> <C-D>
+command Notes tabe ~/notes
