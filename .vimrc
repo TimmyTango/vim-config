@@ -321,10 +321,10 @@ map <leader>s? z=
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
 " Quickly open a buffer for scribble
-map <leader>q :e ~/buffer<cr>
+map <leader>q :tabe ~/buffer<cr>
 
 " Quickly open a markdown buffer for scribble
-map <leader>x :e ~/buffer.md<cr>
+map <leader>x :tabe ~/buffer.md<cr>
 
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
@@ -399,15 +399,24 @@ vnoremap <Space> "
 nnoremap <Space><Space> "_
 vnoremap <Space><Space> "_
 imap jj <Esc>
+set list
+set listchars=tab:▸\ 
 set diffopt=filler,iwhite,vertical
 set mouse=a
-if has("mouse_sgr")
-    set ttymouse=sgr
-else
-    set ttymouse=xterm2
+if !has("nvim")
+    if has("mouse_sgr")
+        set ttymouse=sgr
+    else
+        set ttymouse=xterm2
+    end
 end
 :map <ScrollWheelUp> <C-Y>
 :map <S-ScrollWheelUp> <C-U>
 :map <ScrollWheelDown> <C-E>
 :map <S-ScrollWheelDown> <C-D>
 command Notes tabe ~/notes
+nnoremap <leader>n :Notes<CR>
+command Config tabe ~/.vimrc
+set splitbelow
+set splitright
+
