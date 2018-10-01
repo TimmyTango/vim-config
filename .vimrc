@@ -31,7 +31,7 @@
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-execute pathogen#infect()
+"execute pathogen#infect()
 
 " Sets how many lines of history VIM has to remember
 set history=500
@@ -143,7 +143,6 @@ endif
 
 set background=dark
 
-colorscheme PaperColor 
 " colorscheme cobalt 
 
 " Set extra options when running in GUI mode
@@ -420,3 +419,35 @@ command Config tabe ~/.vimrc
 set splitbelow
 set splitright
 
+call plug#begin('~/.vim/bundle')
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline'
+Plug 'airblade/vim-gitgutter'
+Plug 'pangloss/vim-javascript'
+Plug 'flazz/vim-colorschemes', {'as': 'colorschemes'}
+if has('nvim')
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'autozimu/LanguageClient-neovim', {
+        \ 'branch': 'next',
+        \ 'do': 'bash install.sh',
+        \ }
+    Plug 'sourcegraph/javascript-typescript-langserver'
+    Plug 'junegunn/fzf'
+endif
+call plug#end()
+
+colorscheme PaperColor 
+
+if has('nvim')
+    set hidden
+
+    let g:deoplete#enable_at_startup = 1
+    let g:LanguageClient_serverCommands = {
+        \ 'javascript' : ['/usr/local/bin/javascript-typescript-stdio'],
+        \ 'python': ['/usr/local/bin/pyls']
+        \ }
+    call deoplete#custom#source('LanguageClient-neovim', 'sorters', [])
+    nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+    command Nvimconfig tabe ~/.config/nvim/init.vim
+endif
